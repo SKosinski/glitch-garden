@@ -9,12 +9,34 @@ public class CoreGameArea : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SpawnDefender(GetSquareClicked());
+        AttemptToPlaceDefenderAt(GetSquareClicked());
     }
 
     public void SetSelectedDefender(Defender defenderToSelect)
     {
         defender = defenderToSelect;
+    }
+
+    private void AttemptToPlaceDefenderAt(Vector3 gridPos)
+    {
+        /*
+        Defender[] defenders = FindObjectsOfType<Defender>();
+
+        foreach(Defender defenderAll in defenders)
+        {
+            if (defenderAll.transform.position == gridPos)
+            {
+                return;
+            }
+        }
+        */
+        var StarDisplay = FindObjectOfType<StarDisplay>();
+        int defenderCost = defender.GetStarCost();
+        if (StarDisplay.HaveEnoughStars(defenderCost))
+        {
+            SpawnDefender(gridPos);
+            StarDisplay.SpendStars(defenderCost);
+        }
     }
 
     private Vector3 GetSquareClicked()
