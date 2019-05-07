@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 9039160435916383761}
   - component: {fileID: 2164952378187502159}
   - component: {fileID: 4639953660825367670}
+  - component: {fileID: 2089744697}
   m_Layer: 0
   m_Name: Gnome
   m_TagString: Untagged
@@ -186,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019670367, y: -0.01967001}
+  m_Offset: {x: 0.046643376, y: -0.009554863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -197,7 +198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0618207, y: 1.03934}
+  m_Size: {x: 0.3470385, y: 0.8033266}
   m_EdgeRadius: 0
 --- !u!95 &4639953660825367670
 Animator:
@@ -218,3 +219,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2089744697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371451909668097405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e89c647e3a3cdb4fb8aabb5e78100b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 150
+  explosionVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5,
+    type: 3}

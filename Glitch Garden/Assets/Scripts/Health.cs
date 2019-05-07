@@ -15,6 +15,11 @@ public class Health : MonoBehaviour
         if(startingHealth <= 0)
         {
             ExplosionVFX();
+
+            if(gameObject.GetComponent<Attacker>())
+            {
+                FindObjectOfType<LevelController>().decreaseNumberOfAttackers();
+            }
             Destroy(gameObject);
         }
     }

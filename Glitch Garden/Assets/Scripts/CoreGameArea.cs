@@ -19,7 +19,7 @@ public class CoreGameArea : MonoBehaviour
 
     private void AttemptToPlaceDefenderAt(Vector3 gridPos)
     {
-        /*
+        
         Defender[] defenders = FindObjectsOfType<Defender>();
 
         foreach(Defender defenderAll in defenders)
@@ -29,14 +29,18 @@ public class CoreGameArea : MonoBehaviour
                 return;
             }
         }
-        */
+        
         var StarDisplay = FindObjectOfType<StarDisplay>();
-        int defenderCost = defender.GetStarCost();
-        if (StarDisplay.HaveEnoughStars(defenderCost))
+        if(defender)
         {
-            SpawnDefender(gridPos);
-            StarDisplay.SpendStars(defenderCost);
+            int defenderCost = defender.GetStarCost();
+            if (StarDisplay.HaveEnoughStars(defenderCost))
+            {
+                SpawnDefender(gridPos);
+                StarDisplay.SpendStars(defenderCost);
+            }
         }
+
     }
 
     private Vector3 GetSquareClicked()

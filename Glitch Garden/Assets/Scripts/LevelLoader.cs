@@ -7,12 +7,26 @@ public class LevelLoader : MonoBehaviour
 {
     public void LoadStartMenu()
     {
-        StartCoroutine(LoadStart());
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start Screen");
     }
 
-    IEnumerator LoadStart()
+    public void ReloadLevel()
     {
-        yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("Start Screen");
+        Time.timeScale = 1;
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void LoadNextLevel()
+    {
+        Time.timeScale = 1;
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex + 1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
