@@ -9,6 +9,10 @@ public class Attacker : MonoBehaviour
     float currentSpeed = 1f;
     GameObject currentTarget;
 
+    private void Start()
+    {
+        currentSpeed = currentSpeed + PlayerPrefsController.GetDifficulty();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,7 +30,7 @@ public class Attacker : MonoBehaviour
 
     public void SetMovementSpeed(float speed)
     {
-        currentSpeed = speed;   
+        currentSpeed = speed + PlayerPrefsController.GetDifficulty();   
     }
 
     public void Attack(GameObject target)

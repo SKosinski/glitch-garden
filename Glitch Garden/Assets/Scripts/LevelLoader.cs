@@ -11,6 +11,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene("Start Screen");
     }
 
+    public void LoadOptionsMenu()
+    {
+        SceneManager.LoadScene("Options Screen");
+    }
+
     public void ReloadLevel()
     {
         Time.timeScale = 1;
