@@ -6,6 +6,8 @@ public class BaseCollider : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         FindObjectOfType<HealthDisplay>().TakeALife();
+        Destroy(collision.gameObject);
     }
 }
