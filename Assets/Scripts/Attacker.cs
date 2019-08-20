@@ -6,14 +6,14 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
 
-    float currentSpeed = 1f;
+    [SerializeField] float currentSpeed = 1f;
     GameObject currentTarget;
 
     private void Start()
     {
-        currentSpeed = currentSpeed + PlayerPrefsController.GetDifficulty();
+        currentSpeed = currentSpeed * PlayerPrefsController.GetDifficulty() * 0.5f;
     }
-    // Update is called once per frame
+
     void Update()
     {
         transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
@@ -28,9 +28,14 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    public void SetMovementSpeed(float speed)
+    public void SetMovementSpeed()
     {
-        currentSpeed = speed + PlayerPrefsController.GetDifficulty();   
+        currentSpeed = PlayerPrefsController.GetDifficulty() * 0.5f;   
+    }
+
+    public void SetActionSpeed(float speed)
+    {
+        currentSpeed = speed;
     }
 
     public void Attack(GameObject target)

@@ -9,8 +9,6 @@ public class OptionsController : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     [SerializeField] Slider difficultySlider;
 
-    [SerializeField] float defaultVolume = 0.8f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +40,6 @@ public class OptionsController : MonoBehaviour
     public void SetDefault()
     {
         volumeSlider.value = 0.2f;
-        difficultySlider.value = 0.2f;
+        difficultySlider.value = 2f;
     }
 }
