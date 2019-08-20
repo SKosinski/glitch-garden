@@ -9,21 +9,32 @@ public class LevelController : MonoBehaviour
     [SerializeField] int numberOfAttackers = 0;
     [SerializeField] AudioClip[] audioClips;
 
+    bool levelEnd = false;
+
     // Start is called before the first frame update
 
     private void Start()
     {
         winLabel.SetActive(false);
         loseLabel.SetActive(false);
+        FindAllAttackers();
+    }
+
+    private void Update()
+    {
+        if (numberOfAttackers == 0 || FindObjectOfType<GameTimer>().GetTimerFinished())
+        {
+            if (!levelEnd)
+            {
+                HandleWinCondition();
+                levelEnd = true;
+            }
+        }
     }
 
     public void decreaseNumberOfAttackers()
     {
         numberOfAttackers--;
-        if (numberOfAttackers == 0 && FindObjectOfType<GameTimer>().GetTimerFinished())
-        {
-            HandleWinCondition();
-        }
     }
 
     public void HandleLoseCondition()
@@ -40,9 +51,12 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void increaseNumberOfAttackers()
+    public void FindAllAttackers()
     {
-        numberOfAttackers++;
+        AttackerSpawner[] attackerSpawners = FindObjectsOfType<AttackerSpawner>();
+        foreach(AttackerSpawner attackerSpawner in attackerSpawners)
+        {
+            numberOfAttackers += attackerSpawner.attackersToSpawn;
+        }
     }
-
 }
